@@ -9,10 +9,10 @@ public:
 		int width, int height, bool fullscreen);
 
 	void render();
-	//void update();
 	void handleEvent();
 	void clean();
 	bool running() { return m_bRunning; }
+	void update();
 private:
 	SDL_Window * m_pWindow;
 	SDL_Renderer* m_pRenderer;
