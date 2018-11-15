@@ -13,7 +13,9 @@ int main(int argc, char* garv[])
 		g_game->handleEvents();
 		g_game->update();
 		g_game->render();
+		SDL_Delay(10); // add the delay
 	}
+
 	SDL_Delay(10000);
 
 	g_game->clean();
