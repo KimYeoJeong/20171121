@@ -10,7 +10,7 @@ int main(int argc, char* garv[])
 
 	while (g_game->running())
 	{
-		g_game->handleEvent();
+		g_game->handleEvents();
 		g_game->update();
 		g_game->render();
 	}
