@@ -13,6 +13,7 @@ private:
 	float m_x;
 	float m_y;
 
+public:
 	Vector2D operator+(const Vector2D& v2) const
 	{
 		return Vector2D(m_x + v2.m_x, m_y + v2.m_y);
