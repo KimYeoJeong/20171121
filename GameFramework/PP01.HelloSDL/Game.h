@@ -38,6 +38,7 @@ public:
 	void update();
 	void handleEvents();
 	void clean();
+	void quit();
 	bool running() { return m_bRunning; }
 
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
@@ -50,11 +51,6 @@ public:
 		}
 		return s_pInstance;
 	}
-
-
-
-
-
 };
 
 #pragma once
