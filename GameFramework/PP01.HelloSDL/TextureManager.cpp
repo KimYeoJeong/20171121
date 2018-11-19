@@ -1,12 +1,10 @@
 #include "TextureManager.h"
-#include <iostream>
 #include <SDL_image.h>
 
-TextureManager* TextureManager::s_pInstance = 0;
 
-bool TextureManager::load(std::string fileName, std::string   id,
-	SDL_Renderer* pRenderer)
+bool TextureManager::load(std::string fileName, std::string   id, SDL_Renderer* pRenderer)
 {
+
 	SDL_Surface* pTempSurface = IMG_Load(fileName.c_str());
 	if (pTempSurface == 0) {
 		return false;
@@ -24,10 +22,10 @@ bool TextureManager::load(std::string fileName, std::string   id,
 	return false;
 }
 
-void TextureManager::draw(std::string id,
-	int x, int y, int width, int height,
+void TextureManager::draw(std::string id, int x, int y, int width, int height,
 	SDL_Renderer* pRenderer, SDL_RendererFlip flip)
 {
+
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
 
@@ -42,10 +40,10 @@ void TextureManager::draw(std::string id,
 		&srcRect, &destRect, 0, 0, flip);
 }
 
-void TextureManager::drawFrame(std::string id, int x, int y,
-	int width, int height, int currentRow, int currentFrame,
+void TextureManager::drawFrame(std::string id, int x, int y, int width, int height, int currentRow, int currentFrame,
 	SDL_Renderer* pRenderer, SDL_RendererFlip flip)
 {
+
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
 	srcRect.x = width * currentFrame;
@@ -58,3 +56,6 @@ void TextureManager::drawFrame(std::string id, int x, int y,
 	SDL_RenderCopyEx(pRenderer, m_textureMap[id], &srcRect,
 		&destRect, 0, 0, flip);
 }
+
+TextureManager* TextureManager::s_pInstance = 0;
+
