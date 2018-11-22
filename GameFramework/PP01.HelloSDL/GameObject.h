@@ -12,9 +12,7 @@ public:
 	virtual void clean() = 0;
 	virtual void load(int x, int y, int width, int height,
 		std::string textureID);
-	//virtual void draw(SDL_Renderer* pRenderer);
-	//virtual void update();
-	//virtual void clean();
+
 protected:
 
 	GameObject(const LoaderParams* pParams) : m_pParams(pParams) {}

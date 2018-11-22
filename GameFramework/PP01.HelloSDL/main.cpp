@@ -32,7 +32,6 @@ int main(int argc, char* argv[])
 			SDL_Delay((int)(DELAY_TIME - frameTime));
 		}
 
-
 		else {
 			std::cout << "game init failure - " << SDL_GetError() << "\n";
 			return -1;
