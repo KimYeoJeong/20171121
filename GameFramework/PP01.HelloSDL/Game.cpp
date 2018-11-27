@@ -6,6 +6,7 @@
 #include "TextureManager.h"
 #include "InputHandler.h"
 #include "MenuState.h"
+
 using namespace std;
 
 Game* Game::s_pInstance = 0;

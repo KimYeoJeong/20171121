@@ -22,19 +22,15 @@ private:
 	bool m_bRunning;
 	int m_currentFrame;
 
-	//GameObject m_go;
-	//Player m_player;
+
 
 	std::vector<GameObject*> m_gameObjects;
 
-	//GameObject* m_go;
-	//GameObject* m_player;
-	//GameObject* m_enemy;
-
 	GameStateMachine* m_pGameStateMachine;
+
+
 public:
-	//Game() {}
-	//~Game() {}
+
 	bool init(const char* title, int xpos, int ypos,
 		int width, int height, bool fullscreen);
 	void render();
@@ -45,7 +41,7 @@ public:
 	bool running() { return m_bRunning; }
 
 
-
+	GameStateMachine* getStateMachine() { return m_pGameStateMachine; }
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
 	static Game* Instance()
 	{
