@@ -2,6 +2,8 @@
 #include "GameState.h"
 #include "Game.h"
 #include "GameObject.h"
+#include "PauseState.h"
+
 
 class GameObject;
 class PlayState : public GameState
