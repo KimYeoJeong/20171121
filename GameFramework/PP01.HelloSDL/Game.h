@@ -42,6 +42,7 @@ public:
 
 
 	GameStateMachine* getStateMachine() { return m_pGameStateMachine; }
+
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
 	static Game* Instance()
 	{

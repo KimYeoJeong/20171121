@@ -11,6 +11,7 @@ public:
 	void draw();								//Player를 그려주는 함수
 	void update();								//Player를 매 프레임 작동시켜 주는 함수
 	void clean();
+
 private:
 	void handleInput();//Player의 조작을 담당하는 함수 
 };

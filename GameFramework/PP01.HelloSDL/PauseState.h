@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "GameState.h"
 #include "Game.h"
+#include "AnimatedGraphic.h"
 class GameObject;
 
 class PauseState : public GameState

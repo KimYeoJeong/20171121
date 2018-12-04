@@ -3,7 +3,7 @@
 #include "GameObject.h"
 #include "LoaderParams.h"
 #include "SDLGameObject.h"
-
+#include "AnimatedGraphic.h"
 
 class Enemy : public SDLGameObject
 {
@@ -12,6 +12,7 @@ public:
 	void draw();
 	void update();
 	void clean();
-
 	void handleInput();
+
+	int m_numFrames=5;
 };

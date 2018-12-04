@@ -15,6 +15,9 @@ public:
 	Vector2D m_velocity;
 	Vector2D m_acceleration;
 
+	Vector2D& getPosition() { return m_position; }
+	int getWidth() { return m_width; }
+	int getHeight() { return m_height; }
 
 protected:
 

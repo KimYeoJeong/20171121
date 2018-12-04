@@ -19,7 +19,7 @@ public:
 	virtual bool onEnter();
 	virtual bool onExit();
 	virtual std::string getStateID() const;
-
+	
 
 	static MenuState* Instance()
 	{
