@@ -14,5 +14,6 @@ public:
 	void clean();
 	void handleInput();
 
-	int m_numFrames=5;
+	int m_numFrames=2;
+	float m_numSpeed = 0.5;
 };
