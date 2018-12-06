@@ -1,15 +1,12 @@
 #pragma once
 #include "GameState.h"
-#include "GameOverState.h"
-#include "PauseState.h"
 
 class GameStateMachine
 {
 public:
 	
 	void changeState(GameState* pState);
-	void popState(PauseState* PState);
-	void push(GameOverState* GState);
+	void pushState(GameState* pState);
 
 	void update();
 	void render();

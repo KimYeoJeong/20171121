@@ -1,11 +1,7 @@
 #include "GameStateMachine.h"
 
 
-void GameStateMachine::popState(PauseState * PState)
-{
-	changeState(m_prevState);
-}
-void GameStateMachine::push(GameOverState * GState)
+void GameStateMachine::pushState(GameState * pState)
 {
 	changeState(m_prevState);
 }

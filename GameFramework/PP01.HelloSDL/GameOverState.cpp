@@ -2,7 +2,6 @@
 
 
 const std::string GameOverState::s_gameOverID = "GAMEOVER";
-GameOverState* GameOverState::s_pInstance = 0;
 
 void GameOverState::s_gameOverToMain()
 {
@@ -11,7 +10,7 @@ void GameOverState::s_gameOverToMain()
 }
 void GameOverState::s_restartPlay()
 {
-	TheGame::Instance()->getStateMachine()->changeState(
+	TheGame::Instance()->getStateMachine()->pushState(
 		new PlayState());
 }
 
@@ -46,6 +45,41 @@ bool GameOverState::onEnter()
 	m_gameObjects.push_back(gameOverText);
 	m_gameObjects.push_back(button1);
 	m_gameObjects.push_back(button2);
-	std::cout << "entering PauseState\n";
+	std::cout << "entering GameOverState\n";
+	return true;
+}
+
+void GameOverState::update()
+{
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->update();
+	}
+}
+
+void GameOverState::render()
+{
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->draw();
+	}
+}
+
+bool GameOverState::onExit()
+{
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->clean();
+	}
+	m_gameObjects.clear();
+	TheTextureManager::Instance()
+		->clearFromTextureMap("gameovertext");
+	TheTextureManager::Instance()
+		->clearFromTextureMap("mainbutton");
+	TheTextureManager::Instance()
+		->clearFromTextureMap("restartbutton");
+	// reset the mouse button states to false
+	TheInputHandler::Instance()->reset();
+	std::cout << "exiting GameOverStateState\n";
 	return true;
 }
