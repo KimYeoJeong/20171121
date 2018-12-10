@@ -4,11 +4,19 @@
 #include "GameObject.h"
 #include "PauseState.h"
 #include "SDLGameObject.h"
-
+#include <stdlib.h>       //srand
+#include <time.h>     //time
+#include "background.h"
+#include "Heart.h"
 class GameObject;
 class PlayState : public GameState
 {
 public:
+	int randompositionx;
+	int randompositionx1;
+	int randompositionx2;
+	int randompositionx3;
+	int randompositionx4;
 	virtual void update();
 	virtual void render();
 	virtual bool onEnter();

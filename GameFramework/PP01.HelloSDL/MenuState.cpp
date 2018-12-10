@@ -32,17 +32,26 @@ bool MenuState::onEnter()
 	{
 		return false;
 	}
+	if (!TheTextureManager::Instance()->load("assets/sky.jpg",
+		"background", TheGame::Instance()->getRenderer()))
+	{
+		return false;
+	}
 
 	GameObject* button1 = new MenuButton(
-		new LoaderParams(100, 100, 400, 100, "playbutton"),
+		new LoaderParams(300, 400, 400, 100, "playbutton"),
 		s_menuToPlay);
 
 	GameObject* button2 = new MenuButton(
-		new LoaderParams(100, 300, 400, 100, "exitbutton"),
+		new LoaderParams(300, 500, 400, 100, "exitbutton"),
 		s_exitFromMenu);
 
+	GameObject* background_ = new background(
+		new LoaderParams(0, 0, 1000, 700, "background"));
+	m_gameObjects.push_back(background_);
 	m_gameObjects.push_back(button1);
 	m_gameObjects.push_back(button2);
+
 
 	std::cout << "entering MenuState\n";
 	return true;

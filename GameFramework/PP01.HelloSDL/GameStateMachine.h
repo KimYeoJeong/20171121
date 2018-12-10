@@ -1,9 +1,13 @@
 #pragma once
 #include "GameState.h"
 
+
 class GameStateMachine
 {
+         //srand로 초기화
+ 
 public:
+
 	
 	void changeState(GameState* pState);
 	void pushState(GameState* pState);
