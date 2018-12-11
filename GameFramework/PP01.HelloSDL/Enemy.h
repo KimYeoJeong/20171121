@@ -21,4 +21,5 @@ public:
 	float m_numSpeed = 1.0f;
 	float speedtest=0;
 	int setX=0;
+
 };

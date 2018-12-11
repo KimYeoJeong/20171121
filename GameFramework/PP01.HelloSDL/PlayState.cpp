@@ -12,20 +12,119 @@ void PlayState::update()
 	if (checkCollision(
 		dynamic_cast<SDLGameObject*>(m_gameObjects[1]),
 		dynamic_cast<SDLGameObject*>(m_gameObjects[2])
-	)|| checkCollision(
+	)==true)
+	{
+		if (dynamic_cast<SDLGameObject*>(m_gameObjects[2])->state==true)
+		{
+			dynamic_cast<SDLGameObject*>(m_gameObjects[2])->state = false;
+			if (m_gameObjects.size() == 10)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 9);
+			}
+			else if (m_gameObjects.size() == 9)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 8);
+			}
+			else if (m_gameObjects.size() == 8)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 7);
+			}
+			if (m_gameObjects.size() == 7)
+			{
+				TheGame::Instance()->getStateMachine()->changeState(
+					new GameOverState());
+			}
+		}
+	}
+	else if (checkCollision(
 		dynamic_cast<SDLGameObject*>(m_gameObjects[1]),
 		dynamic_cast<SDLGameObject*>(m_gameObjects[3])
-	)|| checkCollision(
-		dynamic_cast<SDLGameObject*>(m_gameObjects[1]),
-		dynamic_cast<SDLGameObject*>(m_gameObjects[4])
-	)||checkCollision(
-		dynamic_cast<SDLGameObject*>(m_gameObjects[1]),
-		dynamic_cast<SDLGameObject*>(m_gameObjects[5])
-	)||checkCollision(
-		dynamic_cast<SDLGameObject*>(m_gameObjects[1]),
-		dynamic_cast<SDLGameObject*>(m_gameObjects[6])
 	))
 	{
+		if (dynamic_cast<SDLGameObject*>(m_gameObjects[3])->state == true)
+		{
+			dynamic_cast<SDLGameObject*>(m_gameObjects[3])->state = false;
+			if (m_gameObjects.size() == 10)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 9);
+			}
+			else if (m_gameObjects.size() == 9)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 8);
+			}
+			else if (m_gameObjects.size() == 8)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 7);
+			}
+			if (m_gameObjects.size() == 7)
+			{
+				TheGame::Instance()->getStateMachine()->changeState(
+					new GameOverState());
+			}
+		}
+	}
+	else if (checkCollision(
+		dynamic_cast<SDLGameObject*>(m_gameObjects[1]),
+		dynamic_cast<SDLGameObject*>(m_gameObjects[4])
+	))
+	{
+		if (dynamic_cast<SDLGameObject*>(m_gameObjects[4])->state == true)
+		{
+			dynamic_cast<SDLGameObject*>(m_gameObjects[4])->state = false;
+			if (m_gameObjects.size() == 10)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 9);
+			}
+			else if (m_gameObjects.size() == 9)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 8);
+			}
+			else if (m_gameObjects.size() == 8)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 7);
+			}
+			if (m_gameObjects.size() == 7)
+			{
+				TheGame::Instance()->getStateMachine()->changeState(
+					new GameOverState());
+			}
+		}
+	}
+	else if (checkCollision(
+		dynamic_cast<SDLGameObject*>(m_gameObjects[1]),
+		dynamic_cast<SDLGameObject*>(m_gameObjects[5])
+	))
+	{
+		if (dynamic_cast<SDLGameObject*>(m_gameObjects[5])->state == true)
+		{
+			dynamic_cast<SDLGameObject*>(m_gameObjects[5])->state = false;
+			if (m_gameObjects.size() == 10)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 9);
+			}
+			else if (m_gameObjects.size() == 9)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 8);
+			}
+			else if (m_gameObjects.size() == 8)
+			{
+				m_gameObjects.erase(m_gameObjects.begin() + 7);
+			}
+			if (m_gameObjects.size() == 7)
+			{
+				TheGame::Instance()->getStateMachine()->changeState(
+					new GameOverState());
+			}
+		}
+	}
+	else if (checkCollision(
+	dynamic_cast<SDLGameObject*>(m_gameObjects[1]),
+	dynamic_cast<SDLGameObject*>(m_gameObjects[6])
+	))
+	{
+	if (dynamic_cast<SDLGameObject*>(m_gameObjects[6])->state == true)
+	{
+		dynamic_cast<SDLGameObject*>(m_gameObjects[6])->state = false;
 		if (m_gameObjects.size() == 10)
 		{
 			m_gameObjects.erase(m_gameObjects.begin() + 9);
@@ -38,11 +137,18 @@ void PlayState::update()
 		{
 			m_gameObjects.erase(m_gameObjects.begin() + 7);
 		}
-		if (m_gameObjects.size() == 8)
+		if (m_gameObjects.size() == 7)
 		{
 			TheGame::Instance()->getStateMachine()->changeState(
 				new GameOverState());
 		}
+	}
+	}
+
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_ESCAPE))
+	{
+		TheGame::Instance()->getStateMachine()->changeState(
+			new PauseState());
 	}
 }
 
@@ -135,28 +241,27 @@ bool PlayState::onExit()
 
 bool PlayState::checkCollision(SDLGameObject* p1, SDLGameObject* p2) //SDLGameObject* p3, SDLGameObject* p4, SDLGameObject* p5)
 {
-	int leftA, leftB,leftC,leftD;
-	int rightA, rightB,rightC,rightD;
-	int topA, topB,topC,topD;
-	int bottomA, bottomB,bottomC,bottomD;
+		int leftA, leftB, leftC, leftD;
+		int rightA, rightB, rightC, rightD;
+		int topA, topB, topC, topD;
+		int bottomA, bottomB, bottomC, bottomD;
 
-	leftA = p1->getPosition().getX();
-	rightA = p1->getPosition().getX() + p1->getWidth();
-	topA = p1->getPosition().getY();
-	bottomA = p1->getPosition().getY() + p1->getHeight();
+		leftA = p1->getPosition().getX();
+		rightA = p1->getPosition().getX() + p1->getWidth();
+		topA = p1->getPosition().getY();
+		bottomA = p1->getPosition().getY() + p1->getHeight();
 
-	//Calculate the sides of rect B
-	leftB = p2->getPosition().getX();
-	rightB = p2->getPosition().getX() + p2->getWidth();
-	topB = p2->getPosition().getY();
-	bottomB = p2->getPosition().getY() + p2->getHeight();
+		//Calculate the sides of rect B
+		leftB = p2->getPosition().getX();
+		rightB = p2->getPosition().getX() + p2->getWidth();
+		topB = p2->getPosition().getY();
+		bottomB = p2->getPosition().getY() + p2->getHeight();
+		//If any of the sides from A are outside of B
+		if (bottomA <= topB) { return false; }
+		if (topA >= bottomB) { return false; }
+		if (rightA <= leftB) { return false; }
+		if (leftA >= rightB) { return false; }
 
-	//If any of the sides from A are outside of B
-	if (bottomA <= topB) { return false; }
-	if (topA >= bottomB) { return false; }
-	if (rightA <= leftB) { return false; }
-	if (leftA >= rightB) { return false; }
-	
 	/*
 	if (bottomA <= topC) { return false; }
 	if (topA >= bottomC) { return false; }

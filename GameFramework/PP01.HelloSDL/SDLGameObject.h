@@ -18,12 +18,14 @@ public:
 	Vector2D& getPosition() { return m_position; }
 	int getWidth() { return m_width; }
 	int getHeight() { return m_height; }
-
+	
+	bool state = true;
 protected:
 
 	int m_width;
 	int m_height;
 	int m_currentRow;
 	int m_currentFrame;
+
 	std::string m_textureID;
 };

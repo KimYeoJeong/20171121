@@ -25,7 +25,7 @@ public:
 
 
 	bool checkCollision(SDLGameObject* p1, SDLGameObject* p2);
-
+	bool state= true;
 	static PlayState* Instance()
 	{
 		if (s_pInstance == 0)

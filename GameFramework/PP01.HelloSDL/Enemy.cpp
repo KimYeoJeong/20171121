@@ -23,9 +23,9 @@ void Enemy::update()
 		m_velocity.setY(m_numSpeed);
 	}
 	else if (m_position.getY() > 700) {
-
 		m_position.setY(0);
 
+		state = true;
 		m_velocity.setY(m_numSpeed + speedtest);
 		positionUpdate += 100;
 		m_position.setX(m_position.getX() + setX);
